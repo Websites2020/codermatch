@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tour With A Local -- Search Tour Requests</title>
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <!-- <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+
+</head>
+<body>
+        <div class="row">
+                <div class="col-md-12">
+                    <header>
+                        <nav class="navbar">
+                        <span class="title"><a href="/"><img src="./images/logo.png" height="50px" alt="logo"></a><span class="tm">&trade;</span></span>
+                            <ul class="nav justify-content-end">
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link" href="/">Home</a>
+                                </li> -->
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link" href="/page1">Post</a>
+                                </li> -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/page2">Become a Tour Guide</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="page4">How it Works</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/page3">Sign Up</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Log In
+                                    </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="/page5">Tourist</a>
+                                            <a class="dropdown-item" href="/page6">Local Guide</a>
+                                        </div>
+                                </li>
+                                <!-- <div id="google_translate_element"></div> -->
+                            </ul>
+                        </nav>
+                    </header>
+                </div>
+            </div>
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Browse All Available Tour Requests from Tourists Below</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h6>Press <code>ctrl-f</code> (PC) or <code>cmd-f</code> (Mac) to search listings.</h6>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="listings">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Contact the poster</h2>
+      <form style="font-size: 18px;" onsubmit="send()" action="#" method="GET" id="sendEmail" enctype="text/plain">
+        Email Subject:<br>
+        <input style="font-size: 18px; width: 100%;" name="subject" type="text" /><br>
+      Your message to the poster:<br>
+      <textarea style="font-size: 18px; width: 100%;" id="sendM" name="body" cols="60" rows="7" maxlength="799" required></textarea><br>
+      <input class="btn btn-primary" type="submit" value="Send">
+      </form>
+    </div>
+  
+  </div>
+
+</body>
+<footer><hr>&nbsp;Tour With a Local &copy; 2018<span class="ourEmail">Questions, Comments, Help? Contact: tourwithalocal.us@gmail.com</span></footer>
+</html>
