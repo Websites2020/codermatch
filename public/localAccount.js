@@ -11,7 +11,7 @@ $("#lLoad").append(`<div class="row">
 <div class="col-md-12">
     <header>
         <nav class="navbar">
-        <span class="title"><img src="./images/logo.png" height="50px" alt="logo"><span class="tm">&trade;</span></span>
+        <span class="title"><h1>CoderMatch DC</h1></span>
             <ul class="nav justify-content-end">
                 
                 <li class="nav-item">
@@ -27,13 +27,13 @@ $("#lLoad").append(`<div class="row">
 <br>
 <div class="row">
 <div class="col-md-12">
-<h2>Browse All Available Tour Requests from Tourists Below</h2>
+<h2>Hello ${data[0].username}. Browse All Projects Currently Accepting Proposals</h2>
 </div>
 </div>
 <div class="row">
 <div class="col-md-12">
 <h6>Press <code>ctrl-f</code> (PC) or <code>cmd-f</code> (Mac) to search listings.</h6>
-<h6>You will need an active email client on your computer to contact a Tourist.</h6>
+<h6>You will need an active email client on your computer to contact a Business.</h6>
 </div>
 </div>
 <br>
@@ -76,16 +76,16 @@ $.get("/show", function(data, status){
 {
    $("#listings").append(`
    <div class="card" style="box-shadow: 10px 10px grey;">
-   <h5 style="color: white" class="card-header bg-primary">${arr[i].city}, ${arr[i].country}</h5>
+   <h5 style="color: white" class="card-header bg-primary">${arr[i].tourID}</h5>
    <div class="card-body">
    <div class="card-text">
        <div class="row">
            <div class="col-md-9">
-           <p><b>I would like to go to or/and see:</b> ${arr[i].description}<br><b>The number of people on this tour is:</b> ${arr[i].people}<br><b>Tour Date:</b> ${arr[i].date} <span class="helperText">(YYYY/MM/DD)</span><br><b>Tour Time:</b> ${arr[i].time}<br><b>My Budget is:</b>  ${arr[i].budget}.00 <span class="helperText">(in local currency)</span></p>
-   <button id='myBtn${arr[i].tourID}' value='${arr[i].email}' href="#" class="btn btn-warning">Contact this Tourist</button>
+           <p><b>Project Description:</b> ${arr[i].description}<br><b>About Us:</b> ${arr[i].people}<br><b>Project Deadline:</b> ${arr[i].date} <span class="helperText">(YYYY/MM/DD)</span><br><b>Budget:</b>  ${arr[i].budget}.00</p>
+   <button id='myBtn${arr[i].tourID}' value='${arr[i].email}' href="#" class="btn btn-warning">Contact this Business</button>
            </div>
            <div class="col-md-3">
-   <img style="float: right;" src="https://www.mapquestapi.com/staticmap/v5/map?key=Zs2Sg9rdlJl0tdV45Tu8tGlbj0QkyOJI&center=${arr[i].city},${arr[i].country}&size=200,200" srcset="https://www.mapquestapi.com/staticmap/v5/map?key=Zs2Sg9rdlJl0tdV45Tu8tGlbj0QkyOJI&center=${arr[i].city},${arr[i].country}&size=200,200@2x 2x">
+   
            </div>
        </div>
    </div>

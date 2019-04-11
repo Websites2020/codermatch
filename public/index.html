@@ -51,7 +51,7 @@
           min-width: 300px;
         }
         
-        h1 {
+        h1, h2 {
           text-align: center;
           color: #0056B3;
           font-family: 'Heebo', sans-serif;
@@ -120,7 +120,7 @@
             <div class="col-md-12">
                 <header>
                     <nav class="navbar">
-                    <span class="title"><a href="/"><h1>Coder Match DC</h1></a></span>
+                    <span class="title"><a href="/"><h1>CoderMatch DC</h1></a></span>
                         <ul class="nav justify-content-end">
                             <!-- <li class="nav-item">
                                 <a class="nav-link" href="/">Home</a>
@@ -129,7 +129,7 @@
                                 <a class="nav-link" href="/page1">Post</a>
                             </li> -->
                             <li class="nav-item">
-                                <a class="nav-link" href="/page2">I'm a Web Developer</a>
+                                <a class="nav-link" href="/page2">I'm a Developer</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="page4">How it Works</a>
@@ -163,34 +163,29 @@
                             <div class="col-md-1"></div>
                         <div class="col-md-6">
                             <form id="regForm" onsubmit="tourReq()" action="/insert" method="POST">
-                                <h1>Post a Web Development Job</h1>
+                                <h2>Post a Web Development Project</h2>
                                 <!-- Circles which indicates the steps of the form: -->
                                 <div style="text-align:center;margin-top:40px;">
-                                  <!-- <span class="step"></span> -->
+                                  <span class="step"></span>
                                   <span class="step"></span>
                                   <span class="step"></span>
                                   <span class="step"></span>
                                 </div>
                                 <!-- One "tab" for each step in the form: -->
-                                <!-- <div class="tab">Neighborhood:
-                                  <p><input placeholder="Visiting City..." id="location" type="text" name="city" maxlength="99" required></p>
-                                  <p><input placeholder="State, Province, or Country..." id="state" type="text" name="country" maxlength="99" required></p>
-                                </div> -->
-                                <div class="tab">Job Details:
-                                  <p><input id="description" type="text" cols="32" rows="10" name="description" maxlength="499" placeholder="Short description of job. (ex. edit website)" required></p>
-                                  <p><input placeholder="Language or CMS (ex. PHP, Wordpress)" id="people" type="text" name="people" min="1" max="999" required></p>
+                                <div class="tab">Job Description:
+                                  <p><textarea style="font-size: 18px;" id="description" type="text" cols="37" rows="5" name="description" maxlength="150" placeholder="" height="100px" required></textarea>
+                                </div>
+                                <div class="tab">About your business:
+                                  <p><textarea style="font-size: 18px;" id="description" type="text" cols="37" rows="5" name="description" maxlength="150" placeholder="" required></textarea></p>
                                 </div>
                                 <div class="tab">Due by:
                                   <p><input id="date" type="date" name="date" required></p>
-                                  <!-- End Date:<span class="helperText2"> (hh:mm am/pm)</span>
-                                  <p><input id="time" type="time" name="time" required></p> -->
-                                  <!-- How much do you want to offer your Local Guide?
-                                  <p><input placeholder="yyyy" oninput="this.className = ''" name="yyyy"></p> -->
-                                </div>
-                                <div class="tab">Budget:<span class="helperText2"></span>
+                                  Budget: <span class="helperText2">in dollars</span>
                                   <p><input id="offer" type="number" name="budget" min="1" max="99999" required></p>
-                                  What is your email?:
-                                  <p><input placeholder="example@example.com..." id="email" type="email" name="email" maxlength="99" required></p>
+                                </div>
+                                <div class="tab">
+                                  Your contact email:
+                                  <p><input placeholder="example@example.com" id="email" type="email" name="email" maxlength="99" required></p>
                                 </div>
                                 <div style="overflow:auto;">
                                   <div style="float:right;">

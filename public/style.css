@@ -5,6 +5,12 @@ body {
     /* background-image: url("./images/postcard.jpg"); */
 }
 
+h1 {
+    text-align: center;
+    color: #0056B3;
+    font-family: 'Heebo', sans-serif;
+  }
+
 .loginBody {
     /* background: orange; */
     /* background-color: #ffffff; */

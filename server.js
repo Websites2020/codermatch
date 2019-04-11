@@ -14,15 +14,15 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 var con = mysql.createConnection({
-  host: process.env.RDS_HOSTNAME,
-  user: process.env.RDS_USERNAME,
-  password: process.env.RDS_PASSWORD,
-  port: process.env.RDS_PORT,
-  database: "ebdb"
-  // host: "localhost",
-  // user: "root",
-  // password: "",
-  // database: "toursDB"
+  // host: process.env.RDS_HOSTNAME,
+  // user: process.env.RDS_USERNAME,
+  // password: process.env.RDS_PASSWORD,
+  // port: process.env.RDS_PORT,
+  // database: "ebdb"
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "toursDB"
 });
 
 // Add headers
@@ -152,13 +152,22 @@ app.post('/insert', function(req, res) {
   app.use(express.static(__dirname + '/public'));
 })
 
+// app.get('/show',function(req,res){
+//     if (err) throw err;
+//     con.query("SELECT * FROM ebdb.tours WHERE reviewed LIKE '%' ORDER BY tourID DESC", function (err, result, fields) {
+//       if (err) throw err;
+//       // console.log(result);
+//       res.json(result);
+//     });
+// });
+
 app.get('/show',function(req,res){
+  if (err) throw err;
+  con.query("SELECT * FROM toursDB.tours ORDER BY tourID DESC", function (err, result, fields) {
     if (err) throw err;
-    con.query("SELECT * FROM ebdb.tours WHERE reviewed LIKE '%' ORDER BY tourID DESC", function (err, result, fields) {
-      if (err) throw err;
-      // console.log(result);
-      res.json(result);
-    });
+    // console.log(result);
+    res.json(result);
+  });
 });
 
 app.post('/addTourist', function(req,res) {
