@@ -41,6 +41,16 @@
         body {
           background-color: #f1f1f1;
         }
+
+        #signupFormIndex {
+          background-color: #ffffff;
+          margin:0;
+          font-family: 'Heebo', sans-serif;
+          padding: 40px;
+          width: 100%;
+          height: 100%;
+          min-width: 300px;
+        }
         
         #regForm {
           background-color: #ffffff;
@@ -162,17 +172,15 @@
                     <div class="row">
                             <div class="col-md-1"></div>
                         <div class="col-md-6">
-                            <form id="regForm" onsubmit="tourReq()" action="/insert" method="POST">
+                            <!-- <form id="regForm" onsubmit="tourReq()" action="/insert" method="POST">
                                 <h2>Post a Web Development Project</h2>
-                                <!-- Circles which indicates the steps of the form: -->
                                 <div style="text-align:center;margin-top:40px;">
                                   <span class="step"></span>
                                   <span class="step"></span>
                                   <span class="step"></span>
                                   <span class="step"></span>
                                 </div>
-                                <!-- One "tab" for each step in the form: -->
-                                <div class="tab">Job Description:
+                                <div class="tab">What are you looking for:
                                   <p><textarea style="font-size: 18px;" id="description" type="text" cols="37" rows="5" name="description" maxlength="150" placeholder="" height="100px" required></textarea>
                                 </div>
                                 <div class="tab">About your business:
@@ -194,9 +202,25 @@
                                   </div>
                                 </div>
                                 
-                              </form>
+                              </form> -->
                         </div>                        
-                        <div class="col-md-5"></div>
+                        <div class="col-md-5">
+                          <!-- <h1>Find a local web developer for your design project</h1> -->
+                          <form id="signupFormIndex" style="font-size: 18px;" onsubmit="addUser()">
+                              <h3 class="loginTitle">Create an Account</h3>
+                              User Name:<br>
+                              <input id="usrName" style="font-size: 18px; width: 100%;" type="text" name="usrName" maxlength="254" required><br>
+                              Email:<br>
+                              <input id="usrEmail" style="font-size: 18px; width: 100%;" type="email" name="usrEmail" maxlength="254" required><br>
+                              Password:<br>
+                              <input id="usrPass" style="font-size: 18px; width: 100%;" type="password" name="usrPass" maxlength="254" required><br>
+                              Account Type:<br>
+                              <input style="font-size: 18px;" type="radio" name="account" value="1" checked> Business Owner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <input style="font-size: 18px;" type="radio" name="account" value="2"> Web Developer
+                              <br><br>
+                              <div class="loginButton"><input class="btn btn-info" style="width: 100%; background: #0056B3;" type="submit" value="Sign Up"></div>
+                          </form>
+                        </div>
                     </div>
                 <!-- </div> -->
                 
