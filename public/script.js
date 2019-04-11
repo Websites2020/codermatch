@@ -19,7 +19,7 @@ function getData() {
     {
        $("#listings").append(`
        <div class="card" style="box-shadow: 10px 10px grey;">
-       <h5 style="color: white" class="card-header bg-primary">${arr[i].tourID}</h5>
+       <h5 style="color: white" class="card-header bg-primary">Project Number: ${arr[i].tourID}</h5>
        <div class="card-body">
        <div class="card-text">
            <div class="row">

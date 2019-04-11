@@ -9,13 +9,22 @@ h1 {
     text-align: center;
     color: #0056B3;
     font-family: 'Heebo', sans-serif;
-  }
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+} 
 
 .loginBody {
     /* background: orange; */
     /* background-color: #ffffff; */
     background-color: white;
-    /* background-image: url("./images/postcard.jpg"); */
+    /* background-image: url("./images/developer.png"); */
+    background-size: 100%;
+    background-repeat: no-repeat;
     min-height: 100vh;
 }
 
@@ -32,14 +41,14 @@ h1 {
     width: 100%;
 } */
 
-.home {
+/* .home {
     background-image: url("./images/developer.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     width: 100%;
     height: 650px;
-}
+} */
 
 .home2 {
     height: 100px;

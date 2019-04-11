@@ -12,7 +12,7 @@ function loadTourist() {
                 <div class="col-md-12">
                     <header>
                     <nav class="navbar">
-                        <span class="title"><h1>CoderMatch DC</h1></span>
+                        <span class="title"><h1>PushToStart</h1></span>
                             <ul class="nav justify-content-end">
                                 <li class="nav-item">
                                     <a class="nav-link" onclick="logOut()" href="#">Log Out</a>
@@ -32,29 +32,29 @@ function loadTourist() {
         </div>
         <br><br>
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-5" style="padding: 0 !important; margin: 0 !important;">
                 <h3>Create a New Web Project</h3>
     <!-- <form onsubmit="store()"> -->
     <form style="font-size: 18px;" onsubmit="tourReq()" action="/insertAcc" method="POST">
         Username: <span class="helperText2">(not publicly displayed)</span><br>
         <input style="font-size: 18px;" id="user" type="text" name="user" value=${data[0].username} readonly><br><br>
-        <b>About Your Business:</b><br>
-        <textarea style="font-size: 18px;" id="description" class="large-text-box" type="text" cols="32" rows="10" name="description" maxlength="499" placeholder="Ex: Vist museums, eat lunch at a local cafe, see street art." required></textarea><br><br>
         <b>Project Details:</b><br>
-        What do you want to see/do on your tour?<br>
-        <textarea style="font-size: 18px;" id="description" class="large-text-box" type="text" cols="32" rows="10" name="description" maxlength="499" placeholder="Ex: Vist museums, eat lunch at a local cafe, see street art." required></textarea><br><br>
+        <textarea style="font-size: 18px;" id="description"  type="text" cols="32" rows="10" name="description" maxlength="199" placeholder="Writing a children's book" required></textarea><br><br>
+        <b>Who you are looking for:</b><br>
+        <textarea style="font-size: 18px;" id="description"  type="text" cols="32" rows="10" name="description" maxlength="199" placeholder="Looking for artists with experience creating pictures for children's literature" required></textarea><br><br>
         <b>Project Deadline:</b><br>
         <input style="font-size: 18px;" id="date" type="date" name="date" required><br><br>
         <b>Contact Email:</b><br>
         <input style="font-size: 18px;" id="email" type="email" name="email" maxlength="99" required><br>
-        Budget<br>
-        <input style="font-size: 18px;" id="offer" type="number" name="budget" min="1" max="99999" required><span class="helperText2">(in visting country's currency)</span><br><br>
+        <b>Budget</b><br>
+        <input type="range" name="points" min="0" max="100" style="width: 70%" onchange="updateTextInput(this.value);"> $<span id="textInput"></span><br><br>
+        
         <!-- <button type="button" onclick="store()">Submit</button> -->
-        <input class="btn btn-info" type="submit" value="Submit">
+        <input class="btn btn-info" style="background: #0056B3;" type="submit" value="Submit">
     </form>
             </div>
             <div class="col-md-7">
-            <h3>Your Active Web Projects</h3>
+            <h3>Your Active Projects</h3>
             <br>
             <div id="touristListings"></div>
             </div>
@@ -115,3 +115,7 @@ function logOut() {
     sessionStorage.removeItem("password");
     window.location.href = "/page5";
 }
+
+function updateTextInput(val) {
+    document.getElementById('textInput').innerHTML=val; 
+  }
