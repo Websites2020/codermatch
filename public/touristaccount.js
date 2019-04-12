@@ -12,7 +12,7 @@ function loadTourist() {
                 <div class="col-md-12">
                     <header>
                     <nav class="navbar">
-                        <span class="title"><h1>PushToStart</h1></span>
+                        <span class="title"><h1><a href="/" style="color:#0056B3">PushToStart</a><span style="text-align: left; font-size: 15px; font-style: italic; color:gray">Where all projects are under 100 dollars!</span></h1></span>
                             <ul class="nav justify-content-end">
                                 <li class="nav-item">
                                     <a class="nav-link" onclick="logOut()" href="#">Log Out</a>
@@ -27,7 +27,7 @@ function loadTourist() {
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 style="text-align: center">Hello ${data[0].username}.  You are logged in as a Business Owner</h2>
+                <h2 style="text-align: center">Hello ${data[0].username}.  You are logged in as a Project Lead</h2>
             </div>
         </div>
         <br><br>
@@ -39,9 +39,9 @@ function loadTourist() {
         Username: <span class="helperText2">(not publicly displayed)</span><br>
         <input style="font-size: 18px;" id="user" type="text" name="user" value=${data[0].username} readonly><br><br>
         <b>Project Details:</b><br>
-        <textarea style="font-size: 18px;" id="description"  type="text" cols="32" rows="10" name="description" maxlength="199" placeholder="Writing a children's book" required></textarea><br><br>
+        <textarea style="font-size: 18px;" id="description"  type="text" cols="32" rows="10" name="description" maxlength="199" placeholder="Writing a children's book about shapes" required></textarea><br><br>
         <b>Who you are looking for:</b><br>
-        <textarea style="font-size: 18px;" id="description"  type="text" cols="32" rows="10" name="description" maxlength="199" placeholder="Looking for artists with experience creating pictures for children's literature" required></textarea><br><br>
+        <textarea style="font-size: 18px;" id="description"  type="text" cols="32" rows="10" name="description" maxlength="199" placeholder="Looking for artists with experience creating art work for children" required></textarea><br><br>
         <b>Project Deadline:</b><br>
         <input style="font-size: 18px;" id="date" type="date" name="date" required><br><br>
         <b>Contact Email:</b><br>

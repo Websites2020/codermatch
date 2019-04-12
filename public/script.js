@@ -19,15 +19,18 @@ function getData() {
     {
        $("#listings").append(`
        <div class="card" style="box-shadow: 10px 10px grey;">
-       <h5 style="color: white" class="card-header bg-primary">Project Number: ${arr[i].tourID}</h5>
+       <h5 style="color: white" class="card-header bg-primary">Project &#8470; ${arr[i].tourID}</h5>
        <div class="card-body">
        <div class="card-text">
            <div class="row">
-               <div class="col-md-9">
-       <p><b>Project Description:</b> ${arr[i].description}<br><b>About us:</b> ${arr[i].people}<br><b>Project Deadline:</b> ${arr[i].date} <span class="helperText">(YYYY/MM/DD)</span><br><b>Budget:</b> $${arr[i].budget}.00</p>
+               <div class="col-md-6">
+       <p><b>Project Description:</b> ${arr[i].description}<br>
+       <b>Budget:</b> $${arr[i].budget}.00</p>
        <a href="/page6" class="btn btn-warning">Log in to contact this business</a>
                </div>
-               <div class="col-md-3">
+               <div class="col-md-6">
+               <b>Looking For:</b> ${arr[i].people}<br>
+               <b>Project Deadline:</b> ${arr[i].date} <span class="helperText">(YYYY/MM/DD)</span><br>
                </div>
            </div>
        </div>
