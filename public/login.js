@@ -3,11 +3,14 @@ function addUser() {
 var usrData = document.querySelector('input[name="account"]:checked').value;
 // console.log(usrData)
 
+        $("#good").hide();
+
 if (usrData === "1") {
         var user=$("#usrName").val();
         var email=$("#usrEmail").val();
         var pass=$("#usrPass").val();
-        $.post("/addTourist",{usrName: user,usrEmail: email, usrPass: pass}, function(data){
+        var link=$("#usrLink").val();
+        $.post("/addTourist",{usrName: user,usrEmail: email, usrPass: pass, usrLink: link}, function(data){
           // console.log(data.affectedRows)
           if(data.affectedRows === 0) {
             window.location.href='/page8'
@@ -19,12 +22,13 @@ if (usrData === "1") {
         var user=$("#usrName").val();
         var email=$("#usrEmail").val();
         var pass=$("#usrPass").val();
-        $.post("/addLocal",{usrName: user,usrEmail: email, usrPass: pass}, function(data){
+        var link=$("#usrLink").val();
+        $.post("/addLocal",{usrName: user,usrEmail: email, usrPass: pass, usrLink: link}, function(data){
             // console.log(data.affectedRows)
             if(data.affectedRows === 0) {
               window.location.href='/page8'
             } else {
-            window.location.href='/page7'
+            window.location.href='/page7b'
             }
         });
 }

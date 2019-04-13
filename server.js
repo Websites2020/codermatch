@@ -50,6 +50,11 @@ app.get('/',function(req,res){
   app.use(express.static(__dirname + '/public'));
 });
 
+app.get('/resources',function(req,res){
+  res.sendfile("public/resources.html");
+  app.use(express.static(__dirname + '/public'));
+});
+
 app.get('/page1', function (req, res) {
   res.sendfile("public/page1.html");
   app.use(express.static(__dirname + '/public'));
@@ -152,6 +157,43 @@ app.post('/insert', function(req, res) {
   app.use(express.static(__dirname + '/public'));
 })
 
+var ID;
+
+app.post('/flag', function(req, res) {
+  var tourID = req.body.tourID;
+  console.log(tourID);
+  con.query(`SELECT flag FROM toursDB.tours WHERE tourID = ${tourID}`, function (err, result, fields) {
+    if (err) throw err;
+    console.log(result[0].flag);
+    if (result[0].flag == 1) {
+      
+      var sql = `UPDATE tours SET flag='2' WHERE tourID = ${tourID}`;
+  
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("flagged twice")
+  });
+    } else if (result[0].flag == null) {
+      
+      var sql = `UPDATE tours SET flag='1' WHERE tourID = ${tourID}`;
+  
+      con.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log("flagged once")
+      });
+    } else if (result[0].flag >= 2) {
+      
+      var sql = `UPDATE tours SET flag='3' WHERE tourID = ${tourID}`;
+  
+      con.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log("final flag")
+      })}
+// res.sendfile("public/thankyou.html");
+// app.use(express.static(__dirname + '/public'));
+})
+});
+
 // app.get('/show',function(req,res){
 //     if (err) throw err;
 //     con.query("SELECT * FROM ebdb.tours WHERE reviewed LIKE '%' ORDER BY tourID DESC", function (err, result, fields) {
@@ -163,9 +205,15 @@ app.post('/insert', function(req, res) {
 
 app.get('/show',function(req,res){
   if (err) throw err;
-  con.query("SELECT * FROM toursDB.tours ORDER BY tourID DESC", function (err, result, fields) {
+  var currentTime = new Date();
+  var month = currentTime.getMonth() + 1
+  var day = currentTime.getDate()
+  var year = currentTime.getFullYear()
+  var date = year + "-" + month + "-" + day;
+console.log(date);
+  con.query(`SELECT * FROM toursDB.tours WHERE date >= '${date}' ORDER BY tourID DESC`, function (err, result, fields) {
     if (err) throw err;
-    // console.log(result);
+    console.log(result);
     res.json(result);
   });
 });
@@ -174,15 +222,20 @@ app.post('/addTourist', function(req,res) {
   if (err) throw err;
   // console.log(req.body);
     var usrName = req.body.usrName;
+    console.log(usrName);
     var usrEmail = req.body.usrEmail;
+    console.log(usrEmail);
     var usrPass = req.body.usrPass;
-    var sql2 = `INSERT IGNORE INTO tourists (username, email, password) VALUES ('${usrName}', '${usrEmail}', '${usrPass}')`;
+    console.log(usrPass);
+    var usrLink = req.body.usrLink;
+    console.log(usrLink);
+    var sql2 = `INSERT IGNORE INTO tourists (username, email, password, linkedin) VALUES ('${usrName}', '${usrEmail}', '${usrPass}', '${usrLink}')`;
     con.query(sql2, function (err, result) {
       // if (err) throw err;
       // console.log(result)
       res.json(result)
     });
-    // res.sendfile("public/index.html");
+    // res.sendfile("public/thankyou.html");
     // app.use(express.static(__dirname + '/public'));
 })
 

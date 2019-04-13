@@ -1,5 +1,7 @@
 // var arr;
 
+var showno = 5;
+
 if ( window.history.replaceState ) {
     window.history.replaceState( null, null, window.location.href );
 }
@@ -9,13 +11,21 @@ $('.carousel').carousel({
     pause: false
   })
 
+  function showmore() {
+    showno = showno + 5;
+    getData()
+}
+
 function getData() {
     $.get("/show", function(data, status){
         // console.log("getData works")
         // var arr = JSON.parse(data);
         var arr = data;
+        
         // console.log(data);
-        for (var i=0; i<arr.length; i++)
+        $("#listings").html("");
+        
+        for (var i=0; i<showno; i++)
     {
        $("#listings").append(`
        <div class="card" style="box-shadow: 10px 10px grey;">
@@ -25,8 +35,8 @@ function getData() {
            <div class="row">
                <div class="col-md-6">
        <p><b>Project Description:</b> ${arr[i].description}<br>
-       <b>Budget:</b> $${arr[i].budget}.00</p>
-       <a href="/page6" class="btn btn-warning">Log in to contact this business</a>
+       <b>Budget Per Person:</b> $${arr[i].budget}.00</p>
+       <a href="/page6" class="btn btn-warning">Log in to contact this business</a> <button onclick="flag(${arr[i].tourID})">flag listing</button>
                </div>
                <div class="col-md-6">
                <b>Looking For:</b> ${arr[i].people}<br>
@@ -38,11 +48,12 @@ function getData() {
    </div>
         <br>
         `);
-
         } 
-
+        $("#listings2").html(`<button onclick="showmore()">Show More</button>`);
+        console.log("button");
     })
 }
+
 
 // function send() {
 //     console.log("function send()");
@@ -98,3 +109,9 @@ function signup(){
 //     let dog = data.message;
 //     console.log(dog)
 // })
+
+function flag(id) {
+    $.post("/flag", {tourID: id}, function(data){
+        console.log("posting flagged")
+    })
+}

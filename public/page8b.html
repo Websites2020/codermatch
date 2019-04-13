@@ -36,7 +36,7 @@
     <script src="./login.js"></script>
 
 </head>
-<body onload="captchaStart()">
+<body>
         <div class="row">
                 <div class="col-md-12">
                     <header>
@@ -83,96 +83,27 @@
             </div>
         </div>
         <div class="row">
-                <div class="col-md-3" style="padding: 0 !important; margin: 0 !important;">
-                </div>                        
-                <div class="col-md-6" style="padding: 0 !important; margin: 0 !important;">
-                  <!-- <h1>Find a local web developer for your design project</h1> -->
-                  <form id="signupFormIndex" style="font-size: 15px;"  onsubmit="addUser()">
-                      <h3 class="loginTitle">Create an Account</h3>
-                      User Name:<br>
-                      <input id="usrName" style="font-size: 15px; width: 100%;" type="text" name="usrName" maxlength="254" required><br>
-                      Email:<br>
-                      <input id="usrEmail" style="font-size: 15px; width: 100%;" type="email" name="usrEmail" maxlength="254" required><br>
-                      Password:<br>
-                      <input id="usrPass" style="font-size: 15px; width: 100%;" type="password" name="usrPass" maxlength="254" required><br>
-                      LinkedIn URL (kept private):<br>
-                      <input id="usrLink" style="font-size: 15px; width: 100%;" type="text" name="usrLink" maxlength="254" required><br>
-                      Account Type:<br>
-                      <input style="font-size: 14px; width: 5%;" type="radio" name="account" value="1" checked> Project Lead&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <input style="font-size: 14px; width: 5%;" type="radio" name="account" value="2"> Freelancer
-                      <br>
-                      <div class="capbox">
-                      <div style="font-size: 25px; text-align: center; padding: 5px" id="CaptchaDiv"></div>
-                      <div type="hidden"  id="txtCaptcha"></div>
-                      <b>Type the above number to show you're not a bot:</b><br>
-                      <input type="text" id="CaptchaInput" name="CaptchaInput" style="font-size: 15px; width: 100%;">
-                      </div>
-                    
-                      <div class="loginButton"><input class="btn btn-info" style="width: 100%; background: #0056B3;" type="submit" value="Sign Up"></div>
-                  </form>
-                </div>
-                <div class="col-md-3" style="padding: 0 !important; margin: 0 !important;">
-                    </div>
+                <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <h3 class="loginTitle">Create an Account</h3>
+                <br>
+    <form id="signupForm" style="font-size: 18px;" onsubmit="addUser()">
+        User Name:<br>
+        <input id="usrName" style="font-size: 18px; width: 100%;" type="text" name="usrName" maxlength="254" required><br>
+        Email:<br>
+        <input id="usrEmail" style="font-size: 18px; width: 100%;" type="email" name="usrEmail" maxlength="254" required><br>
+        Password:<br>
+        <input id="usrPass" style="font-size: 18px; width: 100%;" type="password" name="usrPass" maxlength="254" required><br>
+        Account Type:<br>
+        <input style="font-size: 18px;" type="radio" name="account" value="1" checked> Tourist&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input style="font-size: 18px;" type="radio" name="account" value="2"> Local
+        <br><br>
+        <div class="loginButton"><input class="btn btn-info" style="width: 100%" type="submit"></div>
+    </form>
             </div>
+            <div class="col-md-4"></div>
+        </div>
     </div>
-
-    <script>    
-      
-                  // Captcha Script
-      
-                function checkform(){
-                  var why = "";
-                  
-                    console.log("form submitted");
-      
-                  if($("#CaptchaInput").value == ""){
-                  why += "- Please Enter CAPTCHA Code.\n";
-                  }
-                  if($("#CaptchaInput").value != ""){
-                  if(ValidCaptcha($("#CaptchaInput").value) == false){
-                  why += "- The CAPTCHA Code Does Not Match.\n";
-                  }
-                  }
-                  if(why != ""){
-                  alert(why);
-                  return false;
-                  } else {
-                    ValidCaptcha()
-                  }}
-      
-                  function captchaStart() {
-                    var a = Math.ceil(Math.random() * 9)+ '';
-                    var b = Math.ceil(Math.random() * 9)+ '';
-                    var c = Math.ceil(Math.random() * 9)+ '';
-                    var d = Math.ceil(Math.random() * 9)+ '';
-                    var e = Math.ceil(Math.random() * 9)+ '';
-      
-                    var code = a + b + c + d + e;
-                    document.getElementById("txtCaptcha").value = code;
-                    document.getElementById("CaptchaDiv").innerHTML = code;
-      
-                    // Validate input against the generated number
-                    function ValidCaptcha(){
-                    var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
-                    var str2 = removeSpaces(document.getElementById('CaptchaInput').value);
-                    if (str1 == str2){
-                    return true;
-                    console.log("user added");
-                    addUser();
-                    }else{
-                    return false;
-                    }
-                    }
-      
-                    // Remove the spaces from the entered and generated code
-                    function removeSpaces(string){
-                    return string.split(' ').join('');
-                    }
-                  }
-                  
-      
-              </script>
-
 </body>
 <br>
 <footer><hr>&nbsp;Tour With a Local &copy; 2018<span class="ourEmail">Questions, Comments, Help? Contact: tourwithalocal.us@gmail.com</span></footer>
