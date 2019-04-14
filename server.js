@@ -211,9 +211,9 @@ app.get('/show',function(req,res){
   var year = currentTime.getFullYear()
   var date = year + "-" + month + "-" + day;
 console.log(date);
-  con.query(`SELECT * FROM toursDB.tours WHERE date >= '${date}' ORDER BY tourID DESC`, function (err, result, fields) {
+  con.query(`SELECT * FROM toursDB.tours WHERE flag IS NULL OR flag = 1 AND date >= '${date}' ORDER BY tourID DESC`, function (err, result, fields) {
     if (err) throw err;
-    console.log(result);
+    console.log(result[0]);
     res.json(result);
   });
 });

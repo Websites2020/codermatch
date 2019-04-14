@@ -32,15 +32,23 @@ function getData() {
        <h5 style="color: white" class="card-header bg-primary">Project &#8470; ${arr[i].tourID}</h5>
        <div class="card-body">
        <div class="card-text">
+       <div class="row">
+               <div class="col-md-12">
+       <p><b>Project Description:</b> ${arr[i].description}<hr>
+                </div>
+       </div>
            <div class="row">
-               <div class="col-md-6">
-       <p><b>Project Description:</b> ${arr[i].description}<br>
-       <b>Budget Per Person:</b> $${arr[i].budget}.00</p>
-       <a href="/page6" class="btn btn-warning">Log in to contact this business</a> <button onclick="flag(${arr[i].tourID})">flag listing</button>
+           <div class="col-md-4">
+       <b>Budget Per Task:</b> $${arr[i].budget}.00</p>
+       <a href="/page6" class="btn btn-warning">Log in to contact this business</a> 
                </div>
-               <div class="col-md-6">
-               <b>Looking For:</b> ${arr[i].people}<br>
+               <div class="col-md-3">
+               <b>Tasks:</b> ${arr[i].people}<br>
+               </div>
+               <div class="col-md-5">
                <b>Project Deadline:</b> ${arr[i].date} <span class="helperText">(YYYY/MM/DD)</span><br>
+               <br>
+               <button class="float-right" style="background: red; padding: 2px;" onclick="flag(${arr[i].tourID})">flag listing</button>
                </div>
            </div>
        </div>
@@ -112,6 +120,6 @@ function signup(){
 
 function flag(id) {
     $.post("/flag", {tourID: id}, function(data){
-        console.log("posting flagged")
+        alert("posting flagged for review")
     })
 }
